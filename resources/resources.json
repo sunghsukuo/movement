@@ -1,0 +1,35 @@
+{
+  "pi": {
+    "name": "WoT Pi",
+    "description": "A simple WoT-connected Raspberry PI for the movement training.",
+    "port": 8888,
+    "sensors": {
+      "ultrasonic": {
+        "name": "Ultrasonic Sensor",
+        "description": "An ultrasonc sensor.",
+        "unit": "cm",
+        "value": 0,
+        "gpio": [23,24]
+      }
+    },
+    "actuators": {
+      "rgbLED": {
+        "r":{
+          "name": "Red LED",
+          "value": false,
+          "gpio": 4
+        },
+        "g":{
+          "name": "Green LED",
+          "value": false,
+          "gpio": 17
+        },
+        "b":{
+          "name": "Blue LED",
+          "value": false,
+          "gpio": 27
+        }  
+      }
+    }
+  }
+}
