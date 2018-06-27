@@ -2,7 +2,7 @@ let resources = require('./../../resources/model');
 
 let model = resources.pi.sensors.ultrasonic;
 let pluginName = resources.pi.sensors.ultrasonic.name;
-let localParams = {simulate: false, frequency: 1000};
+let localParams = {simulate: false, frequency: 200};
 let interval;
 let echoGpio, triggerGpio;
 
