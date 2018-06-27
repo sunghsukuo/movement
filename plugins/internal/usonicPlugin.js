@@ -65,4 +65,6 @@ function showValue() {
     console.info(model.value);
 }
 
+exports.stop();
 exports.start(localParams);
+
