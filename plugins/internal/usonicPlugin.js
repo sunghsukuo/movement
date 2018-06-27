@@ -65,6 +65,9 @@ function showValue() {
     console.info(model.value);
 }
 
-exports.stop();
+
 exports.start(localParams);
 
+setTimeout(function () {
+    exports.stop();
+}, 5000);
