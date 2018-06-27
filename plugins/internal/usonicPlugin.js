@@ -44,13 +44,15 @@ function getDistance() {
         triggerGpio.writeSync(0);
         let begin = process.hrtime();
         // detect echo pull-high signal
+        let i = 0;
         while ((echoGpio.readSync() == 0) ) {
+            i++;
             //let diff = process.hrtime(begin);
             //timeout = (diff[0] * 1e9 + diff[1]) / 1000; // us
         }
         let diff = process.hrtime(begin);
-        console.log(diff);
-        
+        console.log(diff, i);
+
         //console.log(timeout);
         /*
         let begin = process.hrtime();
