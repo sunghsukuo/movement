@@ -35,8 +35,21 @@ function connectHardware() {
 }
 
 function getDistance() {
-    model.value = 10;
-    showValue();
+
+    triggerGpio.writeSync(0);
+    triggerGpio.writeSync(1);
+    setTimeout(function() {
+        triggerGpio.writeSync(0);
+        while (echoGpio.readSync() == 0) {
+            var start = process.hrtime();
+        }
+        while (echoGpio.readSync() == 1) {
+            var diff = process.hrtime(start);
+        }
+
+        model.value = (diff[0] + diff[1] * 1e-9) * 17150;
+        showValue();
+    }, 0.01);
 }
 
 function simulate() {
@@ -48,7 +61,8 @@ function simulate() {
 }
 
 function showValue() {
-    console.info(model.value >= 5 ? 'not yet touched!' : 'touched!');
+    //console.info(model.value >= 5 ? 'not yet touched!' : 'touched!');
+    console.info(model.value);
 }
 
 exports.start(localParams);
