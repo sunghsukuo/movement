@@ -36,14 +36,14 @@ function connectHardware() {
 
 function getDistance() {
 
-    triggerGpio.writeSync(0);
+    //triggerGpio.writeSync(0);
     triggerGpio.writeSync(1);
     setTimeout(function() {
         let timeout = 0;
 
         triggerGpio.writeSync(0);
         let begin = process.hrtime();
-        // detect echo pull-high signal
+        // detect echo pull-high
         let i = 0;
         while ((echoGpio.readSync() == 0) ) {
             i++;
