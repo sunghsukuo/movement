@@ -6,10 +6,12 @@
     "sensors": {
       "ultrasonic": {
         "name": "Ultrasonic Sensor",
-        "description": "An ultrasonc sensor.",
+        "description": "A HC-SR04 ultrasonc sensor for distance measurement.",
         "unit": "cm",
         "value": 0,
-        "gpio": [23,24]
+        "echoGpio": 8,
+        "triggerGpio": 11,
+        "timeout": 450
       }
     },
     "actuators": {
