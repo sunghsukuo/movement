@@ -29,16 +29,35 @@ function connectHardware() {
 
     echoGpio = new Gpio(model.echoGpio, 'in', 'both');
     triggerGpio = new Gpio(model.triggerGpio, 'out');
-    triggerGpio.writeSync(0);
-    triggerGpio.writeSync(1);
-    triggerGpio.writeSync(0);
+    
+    
 
     interval = setInterval(getDistance, localParams.frequency);
     console.info('Hardware %s started!', pluginName);
 }
 
 function getDistance() {
-    
+
+    triggerGpio.writeSync(0);
+    setTimeout(function () {
+        triggerGpio.writeSync(1);
+        setTimeout(function() {
+            let timeout = 0;
+
+            triggerGpio.writeSync(0);
+            let begin = process.hrtime();
+            // detect echo pull-high
+            let i = 0;
+            while ((echoGpio.readSync() == 0) ) {
+                i++;
+                //let diff = process.hrtime(begin);
+                //timeout = (diff[0] * 1e9 + diff[1]) / 1000; // us
+            }
+            let diff = process.hrtime(begin);
+            console.log(diff, i);
+        }, 0.01);
+    }, 100);
+    /*
     triggerGpio.writeSync(1);
     setTimeout(function() {
         let timeout = 0;
@@ -82,7 +101,7 @@ function getDistance() {
             console.info('%s get distance timeout!', pluginName);
         }
         */
-    }, 0.02);
+    //}, 0.01);
 }
 
 function simulate() {
