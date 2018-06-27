@@ -2,7 +2,7 @@ let resources = require('./../../resources/model');
 
 let model = resources.pi.sensors.ultrasonic;
 let pluginName = resources.pi.sensors.ultrasonic.name;
-let localParams = {simulate: false, frequency: 2000};
+let localParams = {simulate: false, frequency: 1000};
 let interval;
 let echoGpio, triggerGpio;
 
@@ -49,7 +49,7 @@ function getDistance() {
 
         model.value = (diff[0] + diff[1] * 1e-9) * 17150;
         showValue();
-    }, 0.02);
+    }, 0.01);
 }
 
 function simulate() {
