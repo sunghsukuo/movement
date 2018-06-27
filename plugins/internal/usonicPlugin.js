@@ -52,20 +52,9 @@ function getDistance() {
             let diff = process.hrtime(begin);
             timeout = (diff[0] * 1e9 + diff[1]) / 1000; // us
         }
-        //let diff = process.hrtime(begin);
-        //console.log(diff, i);
-
-        console.log(timeout, i);
-        /*
-        let begin = process.hrtime();
-        while ((echoGpio.readSync() == 0) && (resources.pi.sensors.ultrasonic.timeout > timeout)) {
-            var start = process.hrtime();
-            let diff = process.hrtime(begin);
-            timeout = (diff[0] * 1e9 + diff[1]) * 1000; // us
-        }
-
-        console.log(timeout);
-        /*
+        //console.log(timeout, i);
+        var start = process.hrtime();
+                
         while (echoGpio.readSync() == 1) {
             var diff = process.hrtime(start);
         }
