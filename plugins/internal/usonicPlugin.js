@@ -2,7 +2,7 @@ let resources = require('./../../resources/model');
 
 let model = resources.pi.sensors.ultrasonic;
 let pluginName = resources.pi.sensors.ultrasonic.name;
-let localParams = {simulate: false, frequency: 1000};
+let localParams = {simulate: false, frequency: 100};
 let interval;
 let echoGpio, triggerGpio;
 
@@ -30,8 +30,6 @@ function connectHardware() {
     echoGpio = new Gpio(model.echoGpio, 'in', 'both');
     triggerGpio = new Gpio(model.triggerGpio, 'out');
     
-    
-
     interval = setInterval(getDistance, localParams.frequency);
     console.info('Hardware %s started!', pluginName);
 }
