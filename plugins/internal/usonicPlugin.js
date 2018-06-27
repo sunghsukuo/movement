@@ -41,7 +41,12 @@ function getDistance() {
     setTimeout(function() {
         triggerGpio.writeSync(0);
 
+        do {
+            console.info('echo pin: %d', echoGpio.readSync());
+        } while (echoGpio.readSync() == 1);
+
         // detect echo pull-high signal
+        /*
         let begin = process.hrtime();
         let timeout = 0;
         while ((echoGpio.readSync() == 0) && (resources.pi.sensors.ultrasonic.timeout > timeout)) {
@@ -49,7 +54,9 @@ function getDistance() {
             let diff = process.hrtime(begin);
             timeout = (diff[0] * 1e9 + diff[1]) * 1000; // us
         }
+
         console.log(timeout);
+        /*
         if (resources.pi.sensors.ultrasonic.timeout > timeout) {
             while (echoGpio.readSync() == 1) {
                 var diff = process.hrtime(start);
@@ -60,7 +67,7 @@ function getDistance() {
         } else {
             console.info('%s get distance timeout!', pluginName);
         }
-        
+        */
     }, 0.01);
 }
 
