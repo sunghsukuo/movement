@@ -40,9 +40,9 @@ function getDistance() {
     triggerGpio.writeSync(1);
     setTimeout(function() {
         triggerGpio.writeSync(0);
-
+        console.log(echoGpio.readSync());
         // detect echo pull-high signal
-        
+        /*
         let begin = process.hrtime();
         let timeout = 0;
         console.info('the time out is %dus', resources.pi.sensors.ultrasonic.timeout);
