@@ -29,14 +29,14 @@ function connectHardware() {
 
     echoGpio = new Gpio(model.echoGpio, 'in', 'both');
     triggerGpio = new Gpio(model.triggerGpio, 'out');
+    triggerGpio.writeSync(0);
 
     interval = setInterval(getDistance, localParams.frequency);
     console.info('Hardware %s started!', pluginName);
 }
 
 function getDistance() {
-
-    //triggerGpio.writeSync(0);
+    
     triggerGpio.writeSync(1);
     setTimeout(function() {
         let timeout = 0;
@@ -80,7 +80,7 @@ function getDistance() {
             console.info('%s get distance timeout!', pluginName);
         }
         */
-    }, 0.01);
+    }, 0.02);
 }
 
 function simulate() {
