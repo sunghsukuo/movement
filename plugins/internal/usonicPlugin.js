@@ -30,6 +30,8 @@ function connectHardware() {
     echoGpio = new Gpio(model.echoGpio, 'in', 'both');
     triggerGpio = new Gpio(model.triggerGpio, 'out');
     triggerGpio.writeSync(0);
+    triggerGpio.writeSync(1);
+    triggerGpio.writeSync(0);
 
     interval = setInterval(getDistance, localParams.frequency);
     console.info('Hardware %s started!', pluginName);
