@@ -40,15 +40,26 @@ function getDistance() {
     triggerGpio.writeSync(1);
     setTimeout(function() {
         triggerGpio.writeSync(0);
-        while (echoGpio.readSync() == 0) {
-            var start = process.hrtime();
-        }
-        while (echoGpio.readSync() == 1) {
-            var diff = process.hrtime(start);
-        }
 
-        model.value = (diff[0] + diff[1] * 1e-9) * 17150;
-        showValue();
+        // detect echo pull-high signal
+        let begin = process.hrtime();
+        let timeout = 0;
+        while ((echoGpio.readSync() == 0) && (resources.pi.sensors.ultrasonic.timeout > timeout)) {
+            var start = process.hrtime();
+            let diff = process.hrtime(begin);
+            timeout = (diff[0] * 1e9 + diff[1]) * 1000; // us
+        }
+        if (resources.pi.sensors.ultrasonic.timeout > timeout) {
+            while (echoGpio.readSync() == 1) {
+                var diff = process.hrtime(start);
+            }
+        
+            model.value = (diff[0] + diff[1] * 1e-9) * 17150;
+            showValue();
+        } else {
+            console.info('%s get distance timeout!', pluginName);
+        }
+        
     }, 0.01);
 }
 
