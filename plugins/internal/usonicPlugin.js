@@ -48,21 +48,13 @@ function getDistance() {
         // detect echo pull-high
         let i = 0;
         while ((echoGpio.readSync() == 0) && (timeout < resources.pi.sensors.ultrasonic.timeout)) {
-            i++;
-            var start = process.hrtime();
+            //i++;
             let diff = process.hrtime(begin);
             timeout = (diff[0] * 1e9 + diff[1]) / 1000; // us
         }
         //console.log(timeout, i);
-        
-                
-        //while (echoGpio.readSync() == 1) {
-        //    var diff = process.hrtime(start);
-        //}
-        //console.log(diff);
-        
         if (resources.pi.sensors.ultrasonic.timeout > timeout) {
-            //var start = process.hrtime();
+            var start = process.hrtime();
             while (echoGpio.readSync() == 1) {
                 var diff = process.hrtime(start);
             }
