@@ -39,25 +39,6 @@ function connectHardware() {
 function getDistance() {
 
     triggerGpio.writeSync(0);
-    setTimeout(function () {
-        triggerGpio.writeSync(1);
-        setTimeout(function() {
-            let timeout = 0;
-
-            triggerGpio.writeSync(0);
-            let begin = process.hrtime();
-            // detect echo pull-high
-            let i = 0;
-            while ((echoGpio.readSync() == 0) ) {
-                i++;
-                //let diff = process.hrtime(begin);
-                //timeout = (diff[0] * 1e9 + diff[1]) / 1000; // us
-            }
-            let diff = process.hrtime(begin);
-            console.log(diff, i);
-        }, 0.01);
-    }, 100);
-    /*
     triggerGpio.writeSync(1);
     setTimeout(function() {
         let timeout = 0;
@@ -66,15 +47,15 @@ function getDistance() {
         let begin = process.hrtime();
         // detect echo pull-high
         let i = 0;
-        while ((echoGpio.readSync() == 0) ) {
+        while ((echoGpio.readSync() == 0) && (timeout < resources.pi.sensors.ultrasonic.timeout)) {
             i++;
-            //let diff = process.hrtime(begin);
-            //timeout = (diff[0] * 1e9 + diff[1]) / 1000; // us
+            let diff = process.hrtime(begin);
+            timeout = (diff[0] * 1e9 + diff[1]) / 1000; // us
         }
-        let diff = process.hrtime(begin);
-        console.log(diff, i);
+        //let diff = process.hrtime(begin);
+        //console.log(diff, i);
 
-        //console.log(timeout);
+        console.log(timeout, i);
         /*
         let begin = process.hrtime();
         while ((echoGpio.readSync() == 0) && (resources.pi.sensors.ultrasonic.timeout > timeout)) {
@@ -101,7 +82,7 @@ function getDistance() {
             console.info('%s get distance timeout!', pluginName);
         }
         */
-    //}, 0.01);
+    }, 0.01);
 }
 
 function simulate() {
