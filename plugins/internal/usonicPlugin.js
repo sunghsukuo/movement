@@ -40,12 +40,12 @@ function getDistance() {
     triggerGpio.writeSync(1);
     setTimeout(function() {
         let timeout = 0;
-        
+
         triggerGpio.writeSync(0);
         console.log(echoGpio.readSync());
         // detect echo pull-high signal
         
-        let begin = process.hrtime();
+        //let begin = process.hrtime();
         
         console.log(echoGpio.readSync());
         /*
