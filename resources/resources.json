@@ -11,7 +11,7 @@
         "value": 0,
         "echoGpio": 8,
         "triggerGpio": 11,
-        "timeout": 450
+        "timeout": 750
       }
     },
     "actuators": {
