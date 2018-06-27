@@ -55,7 +55,6 @@ function getDistance() {
         if (timeout < resources.pi.sensors.ultrasonic.timeout) {
             while (echoGpio.readSync() == 1) {
             }
-
             var diff = process.hrtime(start);
             //model.value = (diff[0] + diff[1] * 1e-9) * 17150;
             model.value = (diff[0] * 1e6 + diff[1] * 1e-3) / 29 / 2;
