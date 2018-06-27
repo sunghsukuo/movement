@@ -40,14 +40,14 @@ function getDistance() {
     triggerGpio.writeSync(1);
     setTimeout(function() {
         triggerGpio.writeSync(0);
-        while (echoGpio.readSync() == 0) {
+        /*while (echoGpio.readSync() == 0) {
             var start = process.hrtime();
         }
         while (echoGpio.readSync() == 1) {
             var diff = process.hrtime(start);
-        }
+        }*/
 
-        model.value = (diff[0] + diff[1] * 1e-9) * 17150;
+        model.value = 1; //(diff[0] + diff[1] * 1e-9) * 17150;
         showValue();
     }, 0.01);
 }
