@@ -53,14 +53,15 @@ function getDistance() {
             timeout = (diff[0] * 1e9 + diff[1]) / 1000; // us
         }
         //console.log(timeout, i);
-        var start = process.hrtime();
+        
                 
-        while (echoGpio.readSync() == 1) {
-            var diff = process.hrtime(start);
-        }
-        console.log(diff);
-        /*
+        //while (echoGpio.readSync() == 1) {
+        //    var diff = process.hrtime(start);
+        //}
+        //console.log(diff);
+        
         if (resources.pi.sensors.ultrasonic.timeout > timeout) {
+            var start = process.hrtime();
             while (echoGpio.readSync() == 1) {
                 var diff = process.hrtime(start);
             }
@@ -70,7 +71,7 @@ function getDistance() {
         } else {
             console.info('%s get distance timeout!', pluginName);
         }
-        */
+        
     }, 0.01);
 }
 
