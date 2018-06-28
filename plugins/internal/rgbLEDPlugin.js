@@ -49,13 +49,13 @@ exports.start = function (params) {
   function connectHardware() {
     var Gpio = require('pigpio').Gpio;
 
-    console.log(model.gpio.r, model.gpio.g, model.gpio.b);
-    /*ledRed = new Gpio(model.gpio.r, {mode: Gpio.OUTPUT});
+    
+    ledRed = new Gpio(model.gpio.r, {mode: Gpio.OUTPUT});
     ledGreen = new Gpio(model.gpio.g, {mode: Gpio.OUTPUT});
     ledBlue = new Gpio(model.gpio.b, {mode: Gpio.OUTPUT});
 
     //RESET RGB LED
-    ledRed.digitalWrite(0);
+    /*ledRed.digitalWrite(0);
     ledGreen.digitalWrite(0);
     ledBlue.digitalWrite(0);*/
 
