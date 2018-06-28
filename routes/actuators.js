@@ -12,7 +12,7 @@ router.route('/rgbLEDs').get(function (req, res, next) {
     //next();
 });
 
-router.route('/rgbLED/:id').get(function (req, res, next) {
+router.route('/rgbLEDs/:id').get(function (req, res, next) {
     res.send(resources.pi.actuators.rgbLEDs[req.params.id]);
 
     //req.result = resources.pi.actuators.rgbLED[req.params.id];
