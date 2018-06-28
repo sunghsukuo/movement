@@ -49,6 +49,7 @@ exports.start = function (params) {
   function connectHardware() {
     var Gpio = require('pigpio').Gpio;
 
+    console.log(model.gpio.r, model.gpio.g, model.gpio.b);
     /*ledRed = new Gpio(model.gpio.r, {mode: Gpio.OUTPUT});
     ledGreen = new Gpio(model.gpio.g, {mode: Gpio.OUTPUT});
     ledBlue = new Gpio(model.gpio.b, {mode: Gpio.OUTPUT});
