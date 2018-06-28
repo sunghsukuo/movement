@@ -3,9 +3,11 @@ let express = require('express'),
     sensorsRoutes = require('./../routes/sensors'),
     resources = require('./../resources/model'),
     cors = require('cors');
+    bodyParser = require('body-parser');
 
 let app = express();
 
+app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/pi/actuators', actuatorsRoutes);
