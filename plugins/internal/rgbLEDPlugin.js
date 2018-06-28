@@ -1,6 +1,5 @@
 let resources = require('./../../resources/model'),
-    utils = require('./../../utils/utils'),
-    Gpio = require('pigpio').Gpio;
+    utils = require('./../../utils/utils');
 
 let model = resources.pi.actuators.rgbLEDs['1'];
 let pluginName = model.name;
@@ -47,11 +46,9 @@ exports.start = function (params) {
   };
 
   function connectHardware() {
-    //var Gpio = require('pigpio').Gpio;
+    let Gpio = require('pigpio').Gpio;
 
-    let ledRed = new Gpio(4, {mode: Gpio.OUTPUT});
-
-    //ledRed = new Gpio(4, {mode: Gpio.OUTPUT});
+    ledRed = new Gpio(4, {mode: Gpio.OUTPUT});
     /*ledGreen = new Gpio(model.gpio.g, {mode: Gpio.OUTPUT});
     ledBlue = new Gpio(model.gpio.b, {mode: Gpio.OUTPUT});
 
