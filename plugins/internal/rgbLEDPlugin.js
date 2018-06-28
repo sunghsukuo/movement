@@ -4,7 +4,7 @@ let resources = require('./../../resources/model'),
 
 let model = resources.pi.actuators.rgbLEDs['1'];
 let pluginName = model.name;
-let localParams = {'simulate': false, 'frequency': 2000};
+let localParams = {'simulate': false, 'frequency': 1000};
 let interval;
 let ledRed, ledGreen, ledBlue;
 
@@ -72,3 +72,5 @@ exports.start = function (params) {
     }, localParams.frequency);
     console.info('Simulated %s actuator started!', pluginName);
   };
+
+  exports.start(localParams);
