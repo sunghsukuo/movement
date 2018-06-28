@@ -48,7 +48,7 @@ function getDistance() {
         while ((echoGpio.readSync() == 0) && (timeout < resources.pi.sensors.ultrasonic.timeout)) {
             //i++;
             let diff = process.hrtime(begin);
-            timeout = (diff[0] * 1e9 + diff[1]) / 1000; // us
+            timeout = (diff[0] * 1e9 + diff[1]) / 1000; // unit is us
         }
         //console.log(timeout, i);
         var start = process.hrtime();
