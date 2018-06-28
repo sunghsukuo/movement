@@ -7,8 +7,9 @@ router.route('/').get(function (req, res, next) {
 });
 
 router.route('/rgbLED').get(function (req, res, next) {
-    req.result = resources.pi.rgbLED;
-    next();
+    res.send(resources.pi.actuators.rgbLED);
+    //req.result = resources.pi.actuators.rgbLED;
+    //next();
 });
 
 router.route('/rgbLED/:id').get(function (req, res, next) {
