@@ -17,10 +17,10 @@ router.route('/rgbLEDs/:id').get(function (req, res, next) {
 
     //req.result = resources.pi.actuators.rgbLED[req.params.id];
     //next();
-    
+
 }).put(function(req, res, next) {
     let selectedLed = resources.pi.actuators.rgbLEDs[req.params.id];
-    console.info(req.body);
+    console.info(req.body.value);
 
     res.send(selectedLed);
 
