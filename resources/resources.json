@@ -18,17 +18,17 @@
       "rgbLED": {
         "r":{
           "name": "Red LED",
-          "value": false,
+          "value": 0,
           "gpio": 4
         },
         "g":{
           "name": "Green LED",
-          "value": false,
+          "value": 0,
           "gpio": 17
         },
         "b":{
           "name": "Blue LED",
-          "value": false,
+          "value": 0,
           "gpio": 27
         }  
       }
