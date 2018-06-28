@@ -12,7 +12,7 @@ exports.start = function (params) {
     observe(model);
   
     if (localParams.simulate) {
-        //connectHardware();
+      connectHardware();
       simulate();
     } else {
       connectHardware();
