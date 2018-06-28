@@ -30,10 +30,10 @@ exports.start = function (params) {
   };
 
   function observe(what) {
-    Object.observe(what, function (changes) {
-      console.info('Change detected by plugin for %s...', pluginName);
-      changeRGBColor(model.value); //#B
-    });
+    //Object.observe(what, function (changes) {
+    //  console.info('Change detected by plugin for %s...', pluginName);
+    //  changeRGBColor(model.value); //#B
+    //});
   };
 
 
