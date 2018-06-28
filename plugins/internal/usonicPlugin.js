@@ -25,16 +25,21 @@ exports.stop = function() {
 }
 
 function connectHardware() {
-    let Gpio = require('onoff').Gpio;
+    /*let Gpio = require('onoff').Gpio;
 
     echoGpio = new Gpio(model.echoGpio, 'in', 'both');
-    triggerGpio = new Gpio(model.triggerGpio, 'out');
+    triggerGpio = new Gpio(model.triggerGpio, 'out');*/
     
     interval = setInterval(getDistance, localParams.frequency);
     console.info('Hardware %s started!', pluginName);
 }
 
 function getDistance() {
+
+    let Gpio = require('onoff').Gpio;
+
+    echoGpio = new Gpio(model.echoGpio, 'in', 'both');
+    triggerGpio = new Gpio(model.triggerGpio, 'out');
 
     triggerGpio.writeSync(0);
     triggerGpio.writeSync(1);
