@@ -2,7 +2,7 @@
   "pi": {
     "name": "WoT Pi",
     "description": "A simple WoT-connected Raspberry PI for the movement training.",
-    "port": 8888,
+    "port": 8989,
     "sensors": {
       "ultrasonic": {
         "name": "Ultrasonic Sensor",
