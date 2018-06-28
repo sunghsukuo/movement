@@ -64,7 +64,7 @@ function getDistance() {
             console.info('%s get distance timeout!', pluginName);
         }
         
-    }, 0.01);
+    }, 0.01); // 10us
 }
 
 function simulate() {
