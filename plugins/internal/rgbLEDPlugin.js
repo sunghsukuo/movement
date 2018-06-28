@@ -51,11 +51,11 @@ exports.start = function (params) {
 
     
     ledRed = new Gpio(model.gpio.r, {mode: Gpio.OUTPUT});
-    ledGreen = new Gpio(model.gpio.g, {mode: Gpio.OUTPUT});
+    /*ledGreen = new Gpio(model.gpio.g, {mode: Gpio.OUTPUT});
     ledBlue = new Gpio(model.gpio.b, {mode: Gpio.OUTPUT});
 
     //RESET RGB LED
-    /*ledRed.digitalWrite(0);
+    ledRed.digitalWrite(0);
     ledGreen.digitalWrite(0);
     ledBlue.digitalWrite(0);*/
 
