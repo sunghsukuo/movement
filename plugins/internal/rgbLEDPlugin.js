@@ -12,7 +12,7 @@ exports.start = function (params) {
     localParams = params;
     //observe(model);
     handler.set = set;
-    console.log(model);
+    console.log(resources.pi.actuators.rgbLEDs['1']);
   
     if (localParams.simulate) {
       simulate();
