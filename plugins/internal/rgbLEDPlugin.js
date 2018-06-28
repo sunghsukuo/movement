@@ -73,4 +73,4 @@ exports.start = function (params) {
     console.info('Simulated %s actuator started!', pluginName);
   };
 
-  exports.start(localParams);
+  //exports.start(localParams);
