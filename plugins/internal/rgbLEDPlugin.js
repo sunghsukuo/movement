@@ -2,6 +2,7 @@ let resources = require('./../../resources/model'),
     utils = require('./../../utils/utils');
 
 let model = resources.pi.actuators.rgbLEDs['1'];
+let handler = model.valueHandler;
 let pluginName = model.name;
 let localParams = {'simulate': false, 'frequency': 1000};
 let interval;
@@ -10,6 +11,7 @@ let ledRed, ledGreen, ledBlue;
 exports.start = function (params) {
     localParams = params;
     //observe(model);
+    handler.set = set;
   
     if (localParams.simulate) {
       simulate();
@@ -36,6 +38,10 @@ exports.start = function (params) {
     //});
   };
 
+  function set(target, key, value) {
+    console.log(target, key, value);
+    return Reflect.set(target, key, value)
+  }
 
   function changeRGBColor(value) {
     if (!localParams.simulate) {
