@@ -82,8 +82,9 @@ function showValue() {
 }
 
 
-exports.start(localParams);
+/*exports.start(localParams);
 
 setTimeout(function () {
     exports.stop();
 }, 10000);
+*/
