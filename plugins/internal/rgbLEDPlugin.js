@@ -63,7 +63,8 @@ exports.start = function (params) {
   function simulate() {
     interval = setInterval(function () {
       // Switch value on a regular basis
-      model.value = {"r":utils.randomInt(0,255), "g":utils.randomInt(0,255), "b":utils.randomInt(0,255)};
+      console.log(utils.randomInt(0,255));
+      //model.value = {"r":utils.randomInt(0,255), "g":utils.randomInt(0,255), "b":utils.randomInt(0,255)};
     }, localParams.frequency);
     console.info('Simulated %s actuator started!', pluginName);
   };
