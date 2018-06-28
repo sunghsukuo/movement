@@ -9,7 +9,10 @@ let ledRed, ledGreen, ledBlue;
 
 exports.start = function (params) {
     localParams = params;
-    //observe(model);
+    
+    // add a new defined set function to the proxy handler of the model
+    // any value modification of the model will be detected by this function
+    // which can then change the physical rgb led.
     model.valueHandler.set = set;
       
     if (localParams.simulate) {
@@ -30,14 +33,7 @@ exports.start = function (params) {
     console.info('%s plugin stopped!', pluginName);
   };
 
-  function observe(what) {
-    //Object.observe(what, function (changes) {
-    //  console.info('Change detected by plugin for %s...', pluginName);
-    //  changeRGBColor(model.value); //#B
-    //});
-  };
-
-  function set(target, key, value) {
+   function set(target, key, value) {
     //console.log(target, key, value);
     if (key == 'value') {
         console.info('Change detected by plugin for %s...', pluginName);
