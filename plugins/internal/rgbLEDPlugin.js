@@ -49,13 +49,13 @@ exports.start = function (params) {
     let Gpio = require('pigpio').Gpio;
 
     ledRed = new Gpio(4, {mode: Gpio.OUTPUT});
-    /*ledGreen = new Gpio(model.gpio.g, {mode: Gpio.OUTPUT});
+    ledGreen = new Gpio(model.gpio.g, {mode: Gpio.OUTPUT});
     ledBlue = new Gpio(model.gpio.b, {mode: Gpio.OUTPUT});
 
     //RESET RGB LED
     ledRed.digitalWrite(0);
     ledGreen.digitalWrite(0);
-    ledBlue.digitalWrite(0);*/
+    ledBlue.digitalWrite(0);
 
     console.info('Hardware %s actuator started!', pluginName);
   };
