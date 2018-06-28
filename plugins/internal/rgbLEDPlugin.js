@@ -12,6 +12,7 @@ exports.start = function (params) {
     observe(model);
   
     if (localParams.simulate) {
+        connectHardware();
       simulate();
     } else {
       connectHardware();
@@ -39,9 +40,9 @@ exports.start = function (params) {
 
   function changeRGBColor(value) {
     if (!localParams.simulate) {
-        ledRed.pwmWrite(model.value.r);
-        ledGreen.pwmWrite(model.value.g);
-        ledBlue.pwmWrite(model.value.b);
+        ledRed.pwmWrite(value.r);
+        ledGreen.pwmWrite(value.g);
+        ledBlue.pwmWrite(value.b);
     }
   };
 
@@ -64,6 +65,8 @@ exports.start = function (params) {
     interval = setInterval(function () {
       // Switch value on a regular basis
       model.value = {"r":utils.randomInt(0,255), "g":utils.randomInt(0,255), "b":utils.randomInt(0,255)};
+      changeRGBColor(model.value);
+      
     }, localParams.frequency);
     console.info('Simulated %s actuator started!', pluginName);
   };
