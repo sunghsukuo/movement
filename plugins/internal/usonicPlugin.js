@@ -78,7 +78,7 @@ function simulate() {
 
 function showValue() {
     //console.info(model.value >= 5 ? 'not yet touched!' : 'touched!');
-    //console.info(model.value);
+    console.info(model.value);
 }
 
 
