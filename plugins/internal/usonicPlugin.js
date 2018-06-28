@@ -58,6 +58,7 @@ function getDistance() {
             var diff = process.hrtime(start);
             //model.value = (diff[0] + diff[1] * 1e-9) * 17150;
             model.value = (diff[0] * 1e6 + diff[1] * 1e-3) / 29 / 2;
+            model.value = Math.round(model.value * 100) / 100;
 
             showValue();
         } else {
