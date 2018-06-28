@@ -10,7 +10,7 @@ let ledRed, ledGreen, ledBlue;
 
 exports.start = function (params) {
     localParams = params;
-    observe(model);
+    //observe(model);
   
     if (localParams.simulate) {
       simulate();
