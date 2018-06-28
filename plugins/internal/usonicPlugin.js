@@ -35,8 +35,7 @@ function connectHardware() {
 }
 
 function getDistance() {
-
-    let Gpio = require('onoff').Gpio;
+    var Gpio = require('onoff').Gpio;
 
     echoGpio = new Gpio(model.echoGpio, 'in', 'both');
     triggerGpio = new Gpio(model.triggerGpio, 'out');
