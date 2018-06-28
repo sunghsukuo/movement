@@ -1,7 +1,7 @@
 let resources = require('./../../resources/model');
     utils = require('./../../utils/utils.js');
 
-let model = resources.pi.actuators.rgbLeds['1'];
+let model = resources.pi.actuators.rgbLEDs['1'];
 let pluginName = model.name;
 let localParams = {'simulate': false, 'frequency': 2000};
 let interval;
