@@ -12,7 +12,7 @@ exports.start = function (params) {
     localParams = params;
     //observe(model);
     handler.set = set;
-    console.log(model.valueHandler);
+    console.log(model);
   
     if (localParams.simulate) {
       simulate();
