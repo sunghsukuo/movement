@@ -39,17 +39,17 @@ exports.start = function (params) {
 
 
   function changeRGBColor(value) {
-    if (!localParams.simulate) {
+    //if (!localParams.simulate) {
         ledRed.pwmWrite(value.r);
         ledGreen.pwmWrite(value.g);
         ledBlue.pwmWrite(value.b);
-    }
+    //}
   };
 
   function connectHardware() {
     let Gpio = require('pigpio').Gpio;
 
-    ledRed = new Gpio(4, {mode: Gpio.OUTPUT});
+    ledRed = new Gpio(model.gpio.r, {mode: Gpio.OUTPUT});
     ledGreen = new Gpio(model.gpio.g, {mode: Gpio.OUTPUT});
     ledBlue = new Gpio(model.gpio.b, {mode: Gpio.OUTPUT});
 
