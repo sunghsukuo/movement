@@ -39,7 +39,7 @@ exports.start = function (params) {
 
   function set(target, key, value) {
     //console.log(target, key, value);
-    if (key == 'Value') {
+    if (key == 'value') {
         console.info('Change detected by plugin for %s...', pluginName);
         changeRGBColor(value);
         return Reflect.set(target, key, value)
