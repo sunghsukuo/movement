@@ -13,19 +13,19 @@ router.route('/rgbLEDs').get(function (req, res, next) {
 });
 
 router.route('/rgbLEDs/:id').get(function (req, res, next) {
-    res.send(resources.pi.actuators.rgbLEDs[req.params.id]);
+    //res.send(resources.pi.actuators.rgbLEDs[req.params.id]);
 
-    //req.result = resources.pi.actuators.rgbLED[req.params.id];
-    //next();
+    req.result = resources.pi.actuators.rgbLED[req.params.id];
+    next();
 
 }).put(function(req, res, next) {
     let selectedLed = resources.pi.actuators.rgbLEDs[req.params.id];
     selectedLed.value = req.body
 
-    res.send(selectedLed);
+    //res.send(selectedLed);
 
-    //req.result = selectedLed;
-    //next();
+    req.result = selectedLed;
+    next();
 });
 
 module.exports = router;
