@@ -2,8 +2,9 @@ let express = require('express'),
     actuatorsRoutes = require('./../routes/actuators'),
     sensorsRoutes = require('./../routes/sensors'),
     resources = require('./../resources/model'),
-    cors = require('cors');
-    bodyParser = require('body-parser');
+    cors = require('cors'),
+    bodyParser = require('body-parser'),
+    converter = require('./../middleware/converter');
 
 let app = express();
 
