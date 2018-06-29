@@ -8,9 +8,9 @@ router.route('/').get(function (req, res, next) {
 });
 
 router.route('/ultrasonic').get(function (req, res, next) {
-    res.send(resources.pi.sensors.ultrasonic);
-    //req.result = resources.pi.sensors.ultrasonic;
-    //next();
+    //res.send(resources.pi.sensors.ultrasonic);
+    req.result = resources.pi.sensors.ultrasonic;
+    next();
 });
 
 module.exports = router;
