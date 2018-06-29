@@ -12,6 +12,7 @@ let msgpack = require('msgpack5')(),
                 case 'html':
                     console.info('HTML representation selected!');
                     var transform = {'tag': 'div', 'html': '${name} : ${value}'};
+                    console.info(req.result);
                     res.send(json2html.transform(req.result, transform)); 
                     return;
                 case 'application/x-msgpack':
