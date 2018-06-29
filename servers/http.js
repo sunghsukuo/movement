@@ -17,4 +17,6 @@ app.get('/pi', function (req, res) {
     res.send('This is the WoT-Pi for movement training.');
 });
 
+// For representation design
+app.use(converter());
 module.exports = app;
