@@ -7,15 +7,15 @@ router.route('/').get(function (req, res, next) {
 });
 
 router.route('/rgbLEDs').get(function (req, res, next) {
-    res.send(resources.pi.actuators.rgbLEDs);
-    //req.result = resources.pi.actuators.rgbLED;
-    //next();
+    //res.send(resources.pi.actuators.rgbLEDs);
+    req.result = resources.pi.actuators.rgbLEDs;
+    next();
 });
 
 router.route('/rgbLEDs/:id').get(function (req, res, next) {
     //res.send(resources.pi.actuators.rgbLEDs[req.params.id]);
 
-    req.result = resources.pi.actuators.rgbLED[req.params.id];
+    req.result = resources.pi.actuators.rgbLEDs[req.params.id];
     next();
 
 }).put(function(req, res, next) {
