@@ -1,6 +1,6 @@
 let msgpack = require('msgpack5')(),
     encode = msgpack.encode,
-    json2html = require('node-json2htmml');
+    json2html = require('node-json2html');
 
 
 
