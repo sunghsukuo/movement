@@ -12,7 +12,6 @@ let msgpack = require('msgpack5')(),
                 case 'html':
                     console.info('HTML representation selected!');
                     var transform = {'tag': 'div', 'html': '${name} : ${value}'};
-                    console.info(req.result);
                     if (typeof req.result.value === 'object') {
                         req.result = {'name': req.result.name, 'value':JSON.stringify(req.result.value)};
                     }
