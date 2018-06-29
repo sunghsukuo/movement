@@ -13,6 +13,9 @@ let msgpack = require('msgpack5')(),
                     console.info('HTML representation selected!');
                     var transform = {'tag': 'div', 'html': '${name} : ${value}'};
                     console.info(req.result);
+                    if (typeof req.result.value === 'object') {
+                        req.result.value = JSON.stringify(req.result.value);
+                    }
                     res.send(json2html.transform(req.result, transform)); 
                     return;
                 case 'application/x-msgpack':
@@ -25,7 +28,7 @@ let msgpack = require('msgpack5')(),
                     res.send(req.result);
                     return;
             }
-        } else {
+        } else { 
             next();
         }
     }
